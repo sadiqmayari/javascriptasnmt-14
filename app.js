@@ -1,25 +1,40 @@
+var button = document.getElementById("student");
+var studentName = document.getElementById("myName");
+
+button.onclick = function () {
+  studentName.innerHTML = "Muhammad Sadiq CCO-116650";
+};
+
 document.write("<br><br><br>");
 //---------------------------------------------------------------
 //date function
+var dateBtn = document.getElementById("dateButton");
+var dateText = document.getElementById("date");
 function getDate() {
   currentDate = new Date();
   return currentDate;
 }
-document.write(getDate());
-
-document.write("<br><br><br>");
+dateBtn.onclick = function () {
+  dateText.innerHTML = getDate();
+};
 
 //-------------------------------------------------------------
 //full name
+var fullNameText = document.getElementById("fullNameAlert");
+var nameButton = document.getElementById("fullName-button");
 function fullName() {
   var fisrtName = prompt("What is your First Name?");
   var lastName = prompt("What is Your Last Name?");
   return fisrtName + " " + lastName;
 }
-alert(fullName());
+nameButton.onclick = function () {
+  fullNameText.innerHTML = fullName();
+};
 
 //-------------------------------------------------------------
 //usr input sum
+var sumButton = document.getElementById("calc");
+var sumText = document.getElementById("input-sum");
 function sum() {
   var a = parseFloat(prompt("Enter any number:"));
   var b = parseFloat(prompt("Enter second number: "));
@@ -27,12 +42,15 @@ function sum() {
   return a + b;
 }
 
-document.write("sum of input value ==> " + sum());
-
+sumButton.onclick = function () {
+  sumText.innerHTML = "sum of input value ==> " + sum();
+};
 document.write("<br><br><br>");
 
 //---------------------------------------------------------------
 //calculator by  entry
+
+var calculatorButton = document.getElementById("calculator");
 function calc() {
   var num1 = parseFloat(prompt("Enter any number:"));
   var num2 = parseFloat(prompt("Enter second number: "));
@@ -52,20 +70,27 @@ function calc() {
     return "wrong entry";
   }
 }
-alert(calc());
+calculatorButton.onclick = function () {
+  alert(calc());
+};
 
 //--------------------------------------------------------------
 //square of argument
-
+var squareText = document.getElementById("squareRoot");
+var squarButton = document.getElementById("square-button");
 function square(x) {
   return x * x;
 }
 
-document.write("Square of Argument 20 ===> " + square(20));
-
+squarButton.onclick = function () {
+  squareText.innerHTML = "Square of Argument 20 ===> " + square(20);
+};
+//-------------------------------------------------------------
 //factorial of a number
 document.write("<br><br><br>");
 
+var factButton = document.getElementById("fact-button");
+var factInner = document.getElementById("factorialText");
 function factorial(n) {
   if (n === 0 || n === 1) {
     return 1;
@@ -74,26 +99,36 @@ function factorial(n) {
   }
 }
 
-document.write("factorial of 5 is === > " + factorial(5));
+factButton.onclick = function () {
+  factInner.innerHTML = "factorial of 5 is === > " + factorial(5);
+};
 
 document.write("<br><br><br>");
 
 //---------------------------------------------------------------
 //user input for starting and ending count
+
+var seriesText = document.getElementById("series");
+var seriesButton = document.getElementById("series-button");
+
 function numberCount(startNumber, endNumber) {
   for (i = startNumber; i <= endNumber; i++) {
     document.write(i + "<br>");
   }
 }
 
-var start = +prompt("Write a Number to Start Counting:");
-var end = +prompt("Write a Number to End Counting:");
+seriesButton.onclick = function () {
+  var start = +prompt("Write a Number to Start Counting:");
+  var end = +prompt("Write a Number to End Counting:");
 
-numberCount(start, end);
-
+  seriesText.innerHTML = numberCount(start, end);
+};
 document.write("<br><br><br>");
 
 //Hypontunuse calculation
+document.write("<h2></h2>");
+var hypoText = document.getElementById("hypo");
+var hypoButton = document.getElementById("hypo-button");
 function calculateHypotenuse(base, perpendicular) {
   // Inner function to calculate the square of a number
   function calculateSquare(side) {
@@ -111,18 +146,22 @@ function calculateHypotenuse(base, perpendicular) {
 }
 
 // Example usage
-var baseLength = parseFloat(prompt("Enter the length of the base:"));
-var perpendicularLength = parseFloat(
-  prompt("Enter the length of the perpendicular:")
-);
+hypoButton.onclick = function () {
+  var baseLength = parseFloat(prompt("Enter the length of the base:"));
+  var perpendicularLength = parseFloat(
+    prompt("Enter the length of the perpendicular:")
+  );
 
-var result = calculateHypotenuse(baseLength, perpendicularLength);
-document.write("Hypotenuse:", result);
-
-document.write("<br><br><br>");
+  var result = calculateHypotenuse(baseLength, perpendicularLength);
+  hypoText.innerHTML = "Hypotenuse: " + result;
+};
 
 //-------------------------------------------------------------
+
 //Title Case
+
+var capitalText = document.getElementById("capitalize");
+var capitalButton = document.getElementById("cap-button");
 function titleCase(inputString) {
   var words = inputString.split(" ");
   var capitalizedWords = [];
@@ -134,11 +173,12 @@ function titleCase(inputString) {
   }
   return capitalizedWords.join(" ");
 }
+capitalButton.onclick = function () {
+  var inputString = prompt("Write any Sentence more than 2 Words:");
+  var result = titleCase(inputString);
 
-var inputString = prompt("Write any Sentence more than 2 Words:");
-var result = titleCase(inputString);
-
-document.write(result);
+  capitalText.innerHTML = result;
+};
 
 // function titleCase(str) {
 //   str = str.toLowerCase().split(' ');
@@ -149,13 +189,13 @@ document.write(result);
 // }
 // titleCase(prompt("please enter a sentence"));
 
-document.write("<br><br><br>");
-
 //-------------------------------------------------------
 
 //LONGEST WORD
 
 //function ka naam or parameter
+var longWordText = document.getElementById("longWord");
+var longButton = document.getElementById("long-button");
 function findLongestWord(str) {
   //variable jis me sentece split hoga
   var words = str.split(" ");
@@ -178,38 +218,40 @@ function findLongestWord(str) {
   }
   return longestWord;
 }
-var sentence = prompt("write a sentence");
-var result = findLongestWord(sentence);
-document.write("The longest word in the string is ===> "+ result);
-
+longButton.onclick = function () {
+  var sentence = prompt("write a sentence");
+  var result = findLongestWord(sentence);
+  longWordText.innerHTML = "The longest word in the string is ===> " + result;
+};
 document.write("<br><br><br>");
 
 //---------------------------------------------------------------
 
-
 //find occurence of a letter
+var fountText = document.getElementById("foundLetter")
+var findButton = document.getElementById("find-button")
 
-var userSentence = prompt("Write a Sentence or any word")
-var findLetter = prompt("what letter you want to find")
+
 function findOccurance(newSentence) {
-
-  newSentence.toLowerCase()
-  var foundLetter = 0
+    var findLetter = prompt("what letter you want to find");
+    newSentence.toLowerCase();
+  var foundLetter = 0;
 
   for (i = 0; i < newSentence.length; i++) {
     if (newSentence.slice(i, i + findLetter.length) === findLetter) {
-      foundLetter++
+      foundLetter++;
     }
   }
-  return foundLetter
-
-
-
-
+  return foundLetter;
 }
 
-document.write("The letter you want to find is *"+findOccurance(userSentence)+"* times in the string")
+findButton.onclick=function(){
+    var userSentence = prompt("Write a Sentence or any word");
 
+  fountText.innerHTML="The letter you want to find is *" +
+    findOccurance(userSentence) +
+    "* times in the string"
+};
 
 // //find string and display count
 // var para = "The quick brown fox jumps over the lazy dog"
@@ -222,37 +264,41 @@ document.write("The letter you want to find is *"+findOccurance(userSentence)+"*
 //     }
 // }
 
+//-------------------------------------------------------------
+
+var rectangleText = document.getElementById("rectangleArea");
+var rectangleButton = document.getElementById("rect-button");
+
+function rectangleCalc(a, b) {
+  return a * b;
+}
+
+rectangleButton.onclick = function () {
+  var rectangleLength = +prompt("Enter Length of a Rectangle:");
+  var rectangleWidth = +prompt("Enter widht of a Rectangle:");
+  var result = rectangleCalc(rectangleLength, rectangleWidth) 
+  rectangleText.innerHTML =
+    "The Area of a Rectangle using arguments as variables is ===> " + result +
+    "<br>";
+    rectangleText.innerHTML +=
+    "The Area of a Rectangle using arguments as variables is ===> " + rectangleCalc(12,4)
+
+};
 
 //-------------------------------------------------------------
 
-document.write("<br><br><br>");
-
-
-function rectangleCalc(a,b){
-  return a*b
-}
-rectangleLength=parseFloat(prompt("Enter Length of a Rectangle:"))
-rectangleWidth=parseFloat(prompt("Enter widht of a Rectangle:"))
-document.write("The Area of a Rectangle using arguments as variables is ===> "+ rectangleCalc(rectangleLength,rectangleWidth))
-document.write("<br>")
-document.write("The Area of a Rectangle using arguments as value is ===> "+ rectangleCalc(12,4))
-
-
-
-//-------------------------------------------------------------
-
-
-document.write("<br><br><br>");
-
-
-
-function palindromChek(str){
-  if (str.split('').reverse().join('')===str){
-    document.write("The word "+str+" is PALINDROME")
-  }else(
-    document.write("The word "+str+" is not palindrom")
-  )
+var palInner = document.getElementById("palindromeResult")
+var palButton = document.getElementById("pal-button")
+function palindromChek(str) {
+  if (str.split("").reverse().join("") === str) {
+    document.write("The word " + strstr.toUpperCase() + " is **PALINDROME**");
+  } else document.write("The word " + str.toUpperCase() + " is not **PALINDROME**");
 }
 
-var userInput = prompt("Enter a word to check its palindrome or not")
-palindromChek(userInput)
+palButton.onclick=function(){
+
+    
+    var userInput = prompt("Enter a word to check its palindrome or not");
+    palInner.innerHTML=palindromChek(userInput);
+    
+}
