@@ -291,7 +291,7 @@ var palInner = document.getElementById("palindromeResult")
 var palButton = document.getElementById("pal-button")
 function palindromChek(str) {
   if (str.split("").reverse().join("") === str) {
-    document.write("The word " + strstr.toUpperCase() + " is **PALINDROME**");
+    document.write("The word " + str.toUpperCase() + " is **PALINDROME**");
   } else document.write("The word " + str.toUpperCase() + " is not **PALINDROME**");
 }
 
